@@ -210,8 +210,8 @@ def _send_via_openclaw(text: str, keyboard: List[List[Dict]],
         row_text = " | ".join([btn["text"] for btn in row])
         buttons_text.append(f"[{row_text}]")
     
-    print(f"\n📱 Telegram 按钮消息:\n")
-    print(f"📝 {text}")
+    print(f"\n[Telegram] Telegram 按钮消息:\n")
+    print(f"[Text] {text}")
     print("\n".join(buttons_text))
     print()
     
@@ -273,7 +273,7 @@ def wait_selection(menu_id: Optional[str] = None, timeout: int = 300,
     wait_key = menu_id or "any"
     start_time = time.time()
     
-    print(f"⏳ 等待用户选择... (超时: {timeout}秒)")
+    print(f"[...] 等待用户选择... (超时: {timeout}秒)")
     print("提示: 在真实环境中，这里会阻塞等待 Telegram 回调")
     
     # 模拟：在测试环境下返回第一个选项
@@ -330,8 +330,8 @@ def handle_callback(callback_data: str) -> Optional[Dict]:
         return None
 
 
-def show_confirm(question: str, yes_text: str = "✅ 是", 
-                 no_text: str = "❌ 否", **kwargs) -> Optional[Dict]:
+def show_confirm(question: str, yes_text: str = "[OK] 是", 
+                 no_text: str = "[X] 否", **kwargs) -> Optional[Dict]:
     """
     快速显示确认对话框
     
